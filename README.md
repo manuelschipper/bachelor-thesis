@@ -1,6 +1,7 @@
 # Simulating manufacturing systems.
 
 (in progress)
+
 In my bachelor thesis we attempt to gain a more profound understanding on how does synchronization emerges and affects manufacturing systems.
 
 It is in line with the ongoing research goal outlined in:
