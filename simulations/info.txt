@@ -1,0 +1,22 @@
+For detailed information read the classes and programs or message me.
+
+Notes:
+
+Exploratory simulations for assembly lines, flow shops, and job shops
+based on qualitative interpretations of these factories description.
+
+The encoding in the folder naming corresponds to the simulation id and is as follow:
+A= Assembly Line, F= Flow shop, J= Job shop.
+D = Deterministic, S= Stochastic, M= Medium (utilization factor of 0.54).
+
+The folder REC_DATA holds csv files with feedback time stamps of job's processings as well as performance.
+The processing data columns are organized as follows:
+job id, work system id, beginning operation, end operation, work content.
+
+Whereas the performance data:
+simulation id, average throughput time, variance throughput times, average capacity utilization, average wip, average queue length
+
+As mentioned in the classes.py files, I acknowledge I used the following licensed material:
+
+Python Discrete Event Simulation Networking:
+Greg Berstein from Grotto Networking (MIT License)
