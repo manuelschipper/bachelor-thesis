@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shadows,arrows,positioning,shapes.geometric}
+\usepackage{adjustbox}
+\usepackage{qtree}
+
+\begin{document}
+	%Arrow style%\textsl{}
+	\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+	%Flow Shop%
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tikzpicture}[%
+		every node/.style={draw,fill=gray!40,rectangle,minimum size=22pt},node distance=1cm]
+		
+		% the vertices
+		\node(source1) at (0,1) {I};
+		\node(source2) at (0,2.5) {I};
+		\node(source3) at (0,-0.5) {I};
+		
+		\node at (2, 0) (A1) {W};
+		\node[below= of A1] (A2) {W};
+		\node[below= of A2] (A3) {W};
+		\node[above= of A1] (A4) {W};
+		\node[above= of A4] (A5) {W};
+		\node[above= of A5] (A6) {W};
+		
+		\node[right= of A1] (B1) {W};
+		\node[right= of A2] (B2) {W};
+		\node[right= of A3] (B3) {W};
+		\node[right= of A4] (B4) {W};
+		\node[right= of A5] (B5) {W};
+		\node[right= of A6] (B6) {W};
+		
+		\node[right= of B1] (C1) {W};
+		\node[right= of B2] (C2) {W};
+		\node[right= of B3] (C3) {W};
+		\node[right= of B4] (C4) {W};
+		\node[right= of B5] (C5) {W};
+		\node[right= of B6] (C6) {W};
+		
+		\node[right= of C1] (D1) {W};
+		\node[right= of C2] (D2) {W};
+		\node[right= of C3] (D3) {W};
+		\node[right= of C4] (D4) {W};
+		\node[right= of C5] (D5) {W};
+		\node[right= of C6] (D6) {W};				
+		
+		\node[right= of D1] (E1) {W};
+		\node[right= of D2] (E2) {W};
+		\node[right= of D3] (E3) {W};
+		\node[right= of D4] (E4) {W};
+		\node[right= of D5] (E5) {W};
+		\node[right= of D6] (E6) {W};
+		
+		\node(Out1) at (11.1,1) {O};
+		\node(Out2) at (11.1,2.5) {O};
+		\node(Out3) at (11.1,-0.5) {O};
+		
+		%the edges
+		\draw [arrow] (source2) -- (A6);
+		\draw [arrow] (source2) -- (A5);
+		
+		\draw [arrow] (source1) -- (A4);
+		\draw [arrow] (source1) -- (A1);
+		
+		\draw [arrow] (source3) -- (A3);
+		\draw [arrow] (source3) -- (A2);
+		
+		\draw [arrow] (A6) -- (B6);
+		\draw [arrow] (A6) -- (B5);
+		\draw [arrow] (A5) -- (B5);
+		\draw [arrow] (A5) -- (B4);
+		\draw [arrow] (A4) -- (B4);
+		\draw [arrow] (A4) -- (B1);
+		\draw [arrow] (A1) -- (B1);
+		\draw [arrow] (A1) -- (B2);
+		\draw [arrow] (A2) -- (B2);
+		\draw [arrow] (A2) -- (B3);	
+		\draw [arrow] (A3) -- (B3);
+		
+		\draw [arrow] (B6) -- (C6);
+		\draw [arrow] (B5) -- (C5);
+		\draw [arrow] (B4) -- (C4);
+		\draw [arrow] (B3) -- (C3);
+		\draw [arrow] (B2) -- (C2);
+		\draw [arrow] (B1) -- (C1);
+		
+		\draw [arrow] (C3) -- (D3);
+		\draw [arrow] (C3) -- (D2);
+		\draw [arrow] (C2) -- (D2);
+		\draw [arrow] (C2) -- (D1);
+		\draw [arrow] (C1) -- (D1);
+		\draw [arrow] (C1) -- (D4);
+		\draw [arrow] (C4) -- (D4);
+		\draw [arrow] (C4) -- (D5);
+		\draw [arrow] (C5) -- (D5);
+		\draw [arrow] (C5) -- (D6);
+		\draw [arrow] (C6) -- (D6);
+		
+		\draw [arrow] (D6) -- (E6);
+		\draw [arrow] (D5) -- (E5);
+		\draw [arrow] (D4) -- (E4);
+		\draw [arrow] (D3) -- (E3);
+		\draw [arrow] (D2) -- (E2);
+		\draw [arrow] (D1) -- (E1);
+		
+		\draw [arrow] (E6) -- (Out2);
+		\draw [arrow] (E5) -- (Out2);
+		\draw [arrow] (E4) -- (Out1);
+		\draw [arrow] (E1) -- (Out1);
+		\draw [arrow] (E2) -- (Out3);
+		\draw [arrow] (E3) -- (Out3);
+		
+		\end{tikzpicture}
+	\end{adjustbox}
+		\begin{center}
+			\large \textsf{{\textbf{b) Flow Shop}}} \\
+		\end{center}
+	
+\end{document}

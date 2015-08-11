@@ -1,0 +1,300 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shadows,arrows,positioning,shapes.geometric}
+\usepackage{adjustbox}
+\usepackage{qtree}
+
+\begin{document}
+	%Arrow style%\textsl{}
+	\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+	%Job Shop%
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tikzpicture}[%
+		every node/.style={draw,fill=gray!40,rectangle,minimum size=22pt},node distance=1cm]
+		
+		% the vertices
+		\node(source1) at (0,1) {G0};
+		\node(source2) at (0,2.5) {G1};
+		\node(source3) at (0,-0.5) {G2};
+		
+		\node at (2, 0) (A1) {W15};
+		\node[below= of A1] (A2) {W20};
+		\node[below= of A2] (A3) {W25};
+		\node[above= of A1] (A4) {W10};
+		\node[above= of A4] (A5) {W05};
+		\node[above= of A5] (A6) {W00};
+		
+		\node[right= of A1] (B1) {W16};
+		\node[right= of A2] (B2) {W21};
+		\node[right= of A3] (B3) {W26};
+		\node[right= of A4] (B4) {W11};
+		\node[right= of A5] (B5) {W06};
+		\node[right= of A6] (B6) {W01};
+		
+		\node[right= of B1] (C1) {W17};
+		\node[right= of B2] (C2) {W22};
+		\node[right= of B3] (C3) {W27};
+		\node[right= of B4] (C4) {W12};
+		\node[right= of B5] (C5) {W07};
+		\node[right= of B6] (C6) {W02};
+		
+		\node[right= of C1] (D1) {W18};
+		\node[right= of C2] (D2) {W23};
+		\node[right= of C3] (D3) {W28};
+		\node[right= of C4] (D4) {W13};
+		\node[right= of C5] (D5) {W08};
+		\node[right= of C6] (D6) {W03};				
+		
+		\node[right= of D1] (E1) {W19};
+		\node[right= of D2] (E2) {W24};
+		\node[right= of D3] (E3) {W29};
+		\node[right= of D4] (E4) {W14};
+		\node[right= of D5] (E5) {W09};
+		\node[right= of D6] (E6) {W04};
+		
+		\node(Out1) at (11.1,1) {S1};
+		\node(Out2) at (11.1,2.5) {S2};
+		\node(Out3) at (11.1,-0.5) {S3};
+		
+		%the edges
+		\draw [arrow] (source2) -- (A6);
+		\draw [arrow] (source2) -- (A5);
+		
+		\draw [arrow] (source1) -- (A4);
+		\draw [arrow] (source1) -- (A1);
+		
+		\draw [arrow] (source3) -- (A3);
+		\draw [arrow] (source3) -- (A2);
+		
+		%A to A
+		\draw [arrow] (A6) -- (A5);
+		\draw [arrow] (A5) -- (A4);
+		\draw [arrow] (A4) -- (A1);
+		\draw [arrow] (A1) -- (A2);
+		\draw [arrow] (A2) -- (A3);
+		
+		\draw [arrow] (A3) -- (A2);
+		\draw [arrow] (A2) -- (A1);
+		\draw [arrow] (A1) -- (A4);
+		\draw [arrow] (A4) -- (A5);
+		\draw [arrow] (A5) -- (A6);	
+		
+		%A to B
+		\draw [arrow] (A6) -- (B6);
+		\draw [arrow] (A6) -- (B5);
+		\draw [arrow] (A5) -- (B5);
+		\draw [arrow] (A5) -- (B4);
+		\draw [arrow] (A4) -- (B4);
+		\draw [arrow] (A4) -- (B1);
+		\draw [arrow] (A1) -- (B1);
+		\draw [arrow] (A1) -- (B2);
+		\draw [arrow] (A2) -- (B2);
+		\draw [arrow] (A2) -- (B3);	
+		\draw [arrow] (A3) -- (B3);
+		
+		\draw [arrow] (A5) -- (B6);
+		\draw [arrow] (A4) -- (B5);
+		\draw [arrow] (A3) -- (B2);
+		\draw [arrow] (A2) -- (B1);		
+		\draw [arrow] (A1) -- (B4);	
+		
+		%B to A
+		\draw [arrow] (B6) -- (A6);
+		\draw [arrow] (B6) -- (A5);
+		\draw [arrow] (B5) -- (A6);
+		\draw [arrow] (B5) -- (A5);
+		\draw [arrow] (B5) -- (A4);
+		\draw [arrow] (B4) -- (A4);
+		\draw [arrow] (B4) -- (A5);
+		\draw [arrow] (B4) -- (A1);
+		\draw [arrow] (B1) -- (A1);
+		\draw [arrow] (B1) -- (A2);
+		\draw [arrow] (B1) -- (A4);
+		\draw [arrow] (B2) -- (A2);
+		\draw [arrow] (B2) -- (A3);
+		\draw [arrow] (B2) -- (A1);
+		\draw [arrow] (B3) -- (A3);	
+		\draw [arrow] (B3) -- (A2);
+	
+		 %B to B
+		\draw [arrow] (B3) -- (B2);
+		\draw [arrow] (B2) -- (B1);
+		\draw [arrow] (B1) -- (B4);
+		\draw [arrow] (B4) -- (B5);
+		\draw [arrow] (B5) -- (B6);
+		
+		\draw [arrow] (B6) -- (B5);
+		\draw [arrow] (B5) -- (B4);
+		\draw [arrow] (B4) -- (B1);
+		\draw [arrow] (B1) -- (B2);
+		\draw [arrow] (B2) -- (B3);	
+		 
+		%B to C
+		\draw [arrow] (B6) -- (C6);
+		\draw [arrow] (B6) -- (C5);
+		\draw [arrow] (B5) -- (C5);
+		\draw [arrow] (B5) -- (C4);
+		\draw [arrow] (B4) -- (C4);
+		\draw [arrow] (B4) -- (C1);
+		\draw [arrow] (B1) -- (C1);
+		\draw [arrow] (B1) -- (C2);
+		\draw [arrow] (B2) -- (C2);
+		\draw [arrow] (B2) -- (C3);	
+		\draw [arrow] (B3) -- (C3);
+		
+		\draw [arrow] (B5) -- (C6);
+		\draw [arrow] (B4) -- (C5);
+		\draw [arrow] (B3) -- (C2);
+		\draw [arrow] (B2) -- (C1);		
+		\draw [arrow] (B1) -- (C4);	
+		
+		%C to B
+		\draw [arrow] (C6) -- (B6);
+		\draw [arrow] (C6) -- (B5);
+		\draw [arrow] (C5) -- (B6);
+		\draw [arrow] (C5) -- (B5);
+		\draw [arrow] (C5) -- (B4);
+		\draw [arrow] (C4) -- (B4);
+		\draw [arrow] (C4) -- (B5);
+		\draw [arrow] (C4) -- (B1);
+		\draw [arrow] (C1) -- (B1);
+		\draw [arrow] (C1) -- (B2);
+		\draw [arrow] (C1) -- (B4);
+		\draw [arrow] (C2) -- (B2);
+		\draw [arrow] (C2) -- (B3);
+		\draw [arrow] (C2) -- (B1);
+		\draw [arrow] (C3) -- (B3);	
+		\draw [arrow] (C3) -- (B2);
+		
+		%C to C
+		\draw [arrow] (C6) -- (C5);
+		\draw [arrow] (C5) -- (C4);
+		\draw [arrow] (C4) -- (C1);
+		\draw [arrow] (C1) -- (C2);
+		\draw [arrow] (C2) -- (C3);
+		
+		\draw [arrow] (C3) -- (C2);
+		\draw [arrow] (C2) -- (C1);
+		\draw [arrow] (C1) -- (C4);
+		\draw [arrow] (C4) -- (C5);
+		\draw [arrow] (C5) -- (C6);
+			
+					
+		%C to D
+		\draw [arrow] (C6) -- (D6);
+		\draw [arrow] (C6) -- (D5);
+		\draw [arrow] (C5) -- (D5);
+		\draw [arrow] (C5) -- (D4);
+		\draw [arrow] (C4) -- (D4);
+		\draw [arrow] (C4) -- (D1);
+		\draw [arrow] (C1) -- (D1);
+		\draw [arrow] (C1) -- (D2);
+		\draw [arrow] (C2) -- (D2);
+		\draw [arrow] (C2) -- (D3);	
+		\draw [arrow] (C3) -- (D3);
+		
+		\draw [arrow] (C5) -- (D6);
+		\draw [arrow] (C4) -- (D5);
+		\draw [arrow] (C3) -- (D2);
+		\draw [arrow] (C2) -- (D1);		
+		\draw [arrow] (C1) -- (D4);
+
+		%D to C
+		\draw [arrow] (D6) -- (C6);
+		\draw [arrow] (D6) -- (C5);
+		\draw [arrow] (D5) -- (C6);
+		\draw [arrow] (D5) -- (C5);
+		\draw [arrow] (D5) -- (C4);
+		\draw [arrow] (D4) -- (C4);
+		\draw [arrow] (D4) -- (C5);
+		\draw [arrow] (D4) -- (C1);
+		\draw [arrow] (D1) -- (C1);
+		\draw [arrow] (D1) -- (C2);
+		\draw [arrow] (D1) -- (C4);
+		\draw [arrow] (D2) -- (C2);
+		\draw [arrow] (D2) -- (C3);
+		\draw [arrow] (D2) -- (C1);
+		\draw [arrow] (D3) -- (C3);	
+		\draw [arrow] (D3) -- (C2);
+		
+		% D to D
+		\draw [arrow] (D3) -- (D2);
+		\draw [arrow] (D2) -- (D1);
+		\draw [arrow] (D1) -- (D4);
+		\draw [arrow] (D4) -- (D5);
+		\draw [arrow] (D5) -- (D6);	
+
+		\draw [arrow] (D6) -- (D5);
+		\draw [arrow] (D5) -- (D4);
+		\draw [arrow] (D4) -- (D1);
+		\draw [arrow] (D1) -- (D2);
+		\draw [arrow] (D2) -- (D3);
+			
+		%D to E
+		\draw [arrow] (D6) -- (E6);
+		\draw [arrow] (D6) -- (E5);
+		\draw [arrow] (D5) -- (E5);
+		\draw [arrow] (D5) -- (E4);
+		\draw [arrow] (D4) -- (E4);
+		\draw [arrow] (D4) -- (E1);
+		\draw [arrow] (D1) -- (E1);
+		\draw [arrow] (D1) -- (E2);
+		\draw [arrow] (D2) -- (E2);
+		\draw [arrow] (D2) -- (E3);	
+		\draw [arrow] (D3) -- (E3);
+		
+		\draw [arrow] (D5) -- (E6);
+		\draw [arrow] (D4) -- (E5);
+		\draw [arrow] (D3) -- (E2);
+		\draw [arrow] (D2) -- (E1);		
+		\draw [arrow] (D1) -- (E4);
+		
+		%E to D
+		\draw [arrow] (E6) -- (D6);
+		\draw [arrow] (E6) -- (D5);
+		\draw [arrow] (E5) -- (D6);
+		\draw [arrow] (E5) -- (D5);
+		\draw [arrow] (E5) -- (D4);
+		\draw [arrow] (E4) -- (D4);
+		\draw [arrow] (E4) -- (D5);
+		\draw [arrow] (E4) -- (D1);
+		\draw [arrow] (E1) -- (D1);
+		\draw [arrow] (E1) -- (D2);
+		\draw [arrow] (E1) -- (D4);
+		\draw [arrow] (E2) -- (D2);
+		\draw [arrow] (E2) -- (D3);
+		\draw [arrow] (E2) -- (D1);
+		\draw [arrow] (E3) -- (D3);	
+		\draw [arrow] (E3) -- (D2);
+				
+		% E to E
+		\draw [arrow] (E6) -- (E5);
+		\draw [arrow] (E5) -- (E4);
+		\draw [arrow] (E4) -- (E1);
+		\draw [arrow] (E1) -- (E2);
+		\draw [arrow] (E2) -- (E3);
+		
+		\draw [arrow] (E3) -- (E2);
+		\draw [arrow] (E2) -- (E1);
+		\draw [arrow] (E1) -- (E4);
+		\draw [arrow] (E4) -- (E5);
+		\draw [arrow] (E5) -- (E6);			
+
+		\draw [arrow] (E6) -- (Out2);
+		\draw [arrow] (E5) -- (Out2);
+		\draw [arrow] (E4) -- (Out1);
+		\draw [arrow] (E1) -- (Out1);
+		\draw [arrow] (E2) -- (Out3);
+		\draw [arrow] (E3) -- (Out3);
+		
+		
+		\end{tikzpicture}
+	\end{adjustbox}
+		\begin{center}
+			\large \textsf{{\textbf{c) Job Shop}}} \\
+		\end{center}
+	
+\end{document}

@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shadows,arrows,positioning,shapes.geometric}
+\usepackage{adjustbox}
+\usepackage{qtree}
+
+\begin{document}
+		
+	%Arrow style%\textsl{}
+	\tikzstyle{arrow} = [thick, ->, >=stealth]
+	%Assembly Line%
+		\begin{tikzpicture}[%
+		every node/.style={draw,fill=gray!40,rectangle,minimum size=22pt},node distance=0.6cm]
+		
+		% the vertices
+		\node(source1) at (0,0) {I};
+		\node(source2) at (0,1) {I};
+		\node(source3) at (0,-1) {I};
+		
+		\node[right=of source1] (A1) {W};
+		\node[right=of A1] (A2) {W};
+		\node[right=of A2] (A3) {W};
+		\node[right=of A3] (A4) {W};
+		\node[right=of A4] (A5) {W};
+		\node[right=of A5] (A6) {W};
+		\node[right=of A6] (A7) {W};
+		\node[right=of A7] (A8) {W};
+		\node[right=of A8] (A9) {W};
+		\node[right=of A9] (A10) {W};	
+		\node[right=of A10] (Out) {O};
+		
+		\node[right=of source2] (B1) {W};
+		\node[right=of B1] (B2) {W};
+		\node[right=of B2] (B3) {W};
+		\node[right=of B3] (B4) {W};
+		\node[right=of B4] (B5) {W};
+		\node[right=of B5] (B6) {W};
+		\node[right=of B6] (B7) {W};
+		\node[right=of B7] (B8) {W};
+		\node[right=of B8] (B9) {W};
+		\node[right=of B9] (B10) {W};
+		\node[right=of B10] (Out2) {O};	
+		
+		\node[right=of source3] (C1) {W};
+		\node[right=of C1] (C2) {W};
+		\node[right=of C2] (C3) {W};
+		\node[right=of C3] (C4) {W};
+		\node[right=of C4] (C5) {W};
+		\node[right=of C5] (C6) {W};
+		\node[right=of C6] (C7) {W};
+		\node[right=of C7] (C8) {W};
+		\node[right=of C8] (C9) {W};
+		\node[right=of C9] (C10) {W};
+		\node[right=of C10] (Out3) {O};	
+				
+		% the edges
+		\draw [arrow] (source1) -- (A1);
+		\draw [arrow] (A1) -- (A2);
+		\draw [arrow] (A2) -- (A3);
+		\draw [arrow] (A3) -- (A4);
+		\draw [arrow] (A4) -- (A5);
+		\draw [arrow] (A5) -- (A6);
+		\draw [arrow] (A6) -- (A7);
+		\draw [arrow] (A7) -- (A8);
+		\draw [arrow] (A8) -- (A9);
+		\draw [arrow] (A9) -- (A10);
+		\draw [arrow] (A10) -- (Out);
+		
+		\draw [arrow] (source2) -- (B1);
+		\draw [arrow] (B1) -- (B2);
+		\draw [arrow] (B2) -- (B3);
+		\draw [arrow] (B3) -- (B4);
+		\draw [arrow] (B4) -- (B5);
+		\draw [arrow] (B5) -- (B6);
+		\draw [arrow] (B6) -- (B7);
+		\draw [arrow] (B7) -- (B8);
+		\draw [arrow] (B8) -- (B9);
+		\draw [arrow] (B9) -- (B10);
+		\draw [arrow] (B10) -- (Out2);
+			
+		\draw [arrow] (source3) -- (C1);
+		\draw [arrow] (C1) -- (C2);
+		\draw [arrow] (C2) -- (C3);
+		\draw [arrow] (C3) -- (C4);
+		\draw [arrow] (C4) -- (C5);
+		\draw [arrow] (C5) -- (C6);
+		\draw [arrow] (C6) -- (C7);
+		\draw [arrow] (C7) -- (C8);
+		\draw [arrow] (C8) -- (C9);
+		\draw [arrow] (C9) -- (C10);
+		\draw [arrow] (C10) -- (Out3);		
+		\end{tikzpicture}
+	\begin{center}
+	\hspace{4.73cm} \large{\textsf{\textbf{a) Assembly Line}}}
+	\end{center}
+\end{document}
