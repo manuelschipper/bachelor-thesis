@@ -1,4 +1,4 @@
-# Synchronization in manufacturing systems.
+## Synchronization in manufacturing systems. ##
 
 In my bachelor thesis we attempt to gain a more profound understanding on how does synchronization emerges and affects manufacturing systems.
 
