@@ -4,11 +4,11 @@ In my bachelor thesis we attempt to gain a more profound understanding on how do
 
 It is in line with the ongoing research goal outlined in:
 
-[http://www.sciencedirect.com/science/article/pii/S2212827114003436](Chankov, S. M., Becker, T., & Windt, K. 2014. Towards Definition of Synchronization in Logistics Systems. Procedia CIRP, 17, 594-599.)
+[Chankov, S. M., Becker, T., & Windt, K. 2014. Towards Definition of Synchronization in Logistics Systems. Procedia CIRP, 17, 594-599.](http://www.sciencedirect.com/science/article/pii/S2212827114003436)
 
 And in particular synchronization measures follow the path presented in:
 
-[http://www.sciencedirect.com/science/article/pii/S2212827113002345](Becker, T., Chankov, M. S., & Windt, K. 2013. Synchronization Measures in Job Shop Manufacturing Environments. Procedia CIRP, 7, 157-162.)
+[Becker, T., Chankov, M. S., & Windt, K. 2013. Synchronization Measures in Job Shop Manufacturing Environments. Procedia CIRP, 7, 157-162.](http://www.sciencedirect.com/science/article/pii/S2212827113002345)
 
 We conduct an exploratory study for which I have programmed computer simulations of manufacturing systems. It is primarly implemented using the SimPy module in Python. We use the Simpy.Store container to model a queueing station in this case representing an abstraction of a work system. 
 
@@ -16,4 +16,4 @@ The files classes.py contain scalable Python classes to simulate dynamic queuein
 
 Future commits will include raw synchronization data and analysis programs.
 
-Please [http://manuelschipper.com/contact](contact me) for further details.
+Please [contact me](http://manuelschipper.com/contact) for further details.
